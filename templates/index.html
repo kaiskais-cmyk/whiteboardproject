@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Whiteboard & Chat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="whiteboard-section">
             <canvas id="whiteboard"></canvas>
             <div class="controls">
+                <button id="tool-pen" class="tool-btn active">Pen</button>
+                <button id="tool-rect" class="tool-btn">Rectangle</button>
+                <button id="tool-circle" class="tool-btn">Circle</button>
+                <div class="separator"></div>
                 <button id="clear-btn">Clear Board</button>
                 <input type="color" id="color-picker" value="#000000">
                 <input type="range" id="brush-size" min="1" max="20" value="5">
@@ -30,4 +38,5 @@
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>

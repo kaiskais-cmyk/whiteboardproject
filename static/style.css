@@ -16,7 +16,7 @@ body {
     height: 100%;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
@@ -30,7 +30,8 @@ body {
 canvas {
     flex-grow: 1;
     cursor: crosshair;
-    touch-action: none; /* Prevent scrolling on touch devices */
+    touch-action: none;
+    /* Prevent scrolling on touch devices */
 }
 
 .controls {
@@ -84,14 +85,38 @@ input[type="text"] {
 }
 
 button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ced4da;
     border-radius: 4px;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e2e6ea;
+}
+
+button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+#clear-btn {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+#clear-btn:hover {
+    background-color: #c82333;
+}
+
+.separator {
+    width: 1px;
+    height: 30px;
+    background-color: #ccc;
+    margin: 0 10px;
 }

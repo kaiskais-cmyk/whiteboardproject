@@ -1,13 +1,14 @@
 from datetime import datetime
 
 class Stroke:
-    def __init__(self, x0, y0, x1, y1, color, size):
+    def __init__(self, x0, y0, x1, y1, color, size, stroke_type='line'):
         self.x0 = x0
         self.y0 = y0
         self.x1 = x1
         self.y1 = y1
         self.color = color
         self.size = size
+        self.stroke_type = stroke_type
 
     def to_dict(self):
         return {
@@ -16,7 +17,8 @@ class Stroke:
             'x1': self.x1,
             'y1': self.y1,
             'color': self.color,
-            'size': self.size
+            'size': self.size,
+            'type': self.stroke_type
         }
 
     @staticmethod
@@ -27,7 +29,8 @@ class Stroke:
             x1=data.get('x1'),
             y1=data.get('y1'),
             color=data.get('color'),
-            size=data.get('size')
+            size=data.get('size'),
+            stroke_type=data.get('type', 'line')
         )
 
     def is_valid(self):
