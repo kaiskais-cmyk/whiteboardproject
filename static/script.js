@@ -14,10 +14,26 @@ socket.on('connect', () => {
     socket.emit('join', { board_id: boardId });
 });
 
+// Share URL Logic
+const shareUrlInput = document.getElementById('share-url');
+shareUrlInput.value = window.location.href;
+
+document.getElementById('copy-btn').addEventListener('click', () => {
+    shareUrlInput.select();
+    shareUrlInput.setSelectionRange(0, 99999); // For mobile devices
+    navigator.clipboard.writeText(shareUrlInput.value).then(() => {
+        const originalText = document.getElementById('copy-btn').innerText;
+        document.getElementById('copy-btn').innerText = 'Copied!';
+        setTimeout(() => {
+            document.getElementById('copy-btn').innerText = originalText;
+        }, 2000);
+    });
+});
+
 // Resize canvas to fill the container
 function resizeCanvas() {
     canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientHeight - controls.clientHeight;
+    canvas.height = canvas.parentElement.clientHeight - controls.clientHeight - document.querySelector('.share-bar').clientHeight;
 }
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas(); // Initial resize
